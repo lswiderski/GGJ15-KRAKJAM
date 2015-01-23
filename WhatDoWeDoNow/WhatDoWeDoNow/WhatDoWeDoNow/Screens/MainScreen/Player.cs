@@ -65,8 +65,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             }
             else if(playerState == PLAYER_STATE.stop)
             {
-                spriteBatch.Draw(stopTexture,position,Color.White);
-
+                spriteBatch.Draw(stopTexture, position, null, Color.White, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
             }
 
             
