@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using WhatDoWeDoNow.ScreenManager;
 using WhatDoWeDoNow.Screens;
+using WhatDoWeDoNow.Screens.MainScreen;
 
 namespace WhatDoWeDoNow
 {
@@ -41,8 +42,8 @@ namespace WhatDoWeDoNow
         {
             SCREEN_MANAGER.add_screen(new Screen1(GraphicsDevice,Content));
             SCREEN_MANAGER.add_screen(new Screen2(GraphicsDevice,Content));
-
-            SCREEN_MANAGER.goto_screen("screen1");
+            SCREEN_MANAGER.add_screen(new MainGameScreen(GraphicsDevice, Content));
+            SCREEN_MANAGER.goto_screen("MainGame");
 
             base.Initialize();
         }

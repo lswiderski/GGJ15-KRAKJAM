@@ -37,7 +37,8 @@ namespace WhatDoWeDoNow
         /// </summary>
         public Vector2 Origin
         {
-            get { return new Vector2(Animation.FrameWidth / 2.0f, Animation.FrameHeight); }
+            //get { return new Vector2(Animation.FrameWidth / 2.0f, Animation.FrameHeight); }
+            get { return new Vector2(0,0); }
         }
 
         /// <summary>
