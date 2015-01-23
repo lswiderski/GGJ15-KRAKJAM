@@ -13,6 +13,8 @@ namespace WhatDoWeDoNow.Screens
     class Screen1 : Screen
     {
         private Texture2D testTexture2D;
+        private Animation testAnimation;
+        private AnimationPlayer player;
         public Screen1(GraphicsDevice device, ContentManager _content)
             : base(device,_content, "screen1")
         {
@@ -21,6 +23,8 @@ namespace WhatDoWeDoNow.Screens
         public override bool Init()
         {
             testTexture2D = content.Load<Texture2D>("testpng");
+            testAnimation = new Animation(content.Load<Texture2D>("testanimation"),0.2f,true,30);
+            player.PlayAnimation(testAnimation);
 
             return base.Init();
         }
@@ -40,6 +44,7 @@ namespace WhatDoWeDoNow.Screens
                      null,
                      null,
                      camera.get_transformation(device));
+            player.Draw(gameTime,spriteBatch,new Vector2(20,20),SpriteEffects.None );
             spriteBatch.Draw(testTexture2D,Vector2.Zero,Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
@@ -55,7 +60,7 @@ namespace WhatDoWeDoNow.Screens
             {
                 camera.Move(new Vector2(5,0));
             }
-
+            
             // Check if m is pressed and go to screen2
             if (Keyboard.GetState().IsKeyDown(Keys.M))
             {
