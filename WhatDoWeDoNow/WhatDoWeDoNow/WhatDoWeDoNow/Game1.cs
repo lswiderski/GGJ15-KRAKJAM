@@ -21,8 +21,8 @@ namespace WhatDoWeDoNow
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        public static int MinXPosition = 0;
-        public static int MinYPosition = 0;
+        public static int MinXPosition = 100;
+        public static int MinYPosition = 100;
         public static int MaxXPosition = 1048;
         public static int MaxYPosition = 786;
         public Game1()
