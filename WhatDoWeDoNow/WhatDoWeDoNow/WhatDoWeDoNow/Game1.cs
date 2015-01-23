@@ -25,6 +25,7 @@ namespace WhatDoWeDoNow
         public static int MinYPosition = 150;
         public static int MaxXPosition = 808;
         public static int MaxYPosition = 686;
+        private Song BGM;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -63,7 +64,9 @@ namespace WhatDoWeDoNow
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            BGM = Content.Load<Song>("MyVeryOwnDeadShip");
+            MediaPlayer.Play(BGM);
+            MediaPlayer.IsRepeating = true;
             SCREEN_MANAGER.Init();
         }
 
