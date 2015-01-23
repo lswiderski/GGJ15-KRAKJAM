@@ -21,7 +21,10 @@ namespace WhatDoWeDoNow
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        public static int MinXPosition = 0;
+        public static int MinYPosition = 0;
+        public static int MaxXPosition = 1048;
+        public static int MaxYPosition = 786;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);

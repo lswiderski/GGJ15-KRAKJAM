@@ -24,6 +24,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
          private AnimationPlayer player;
          private Animation walkingAnimation;
          private Vector2 position;
+         private Vector2 origin;
 
          public Vector2 Position
          {
@@ -41,6 +42,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
              player.PlayAnimation(walkingAnimation);
              stopTexture = _content.Load<Texture2D>("testpng");
              position = new Vector2(300,300);
+             origin = new Vector2(stopTexture.Width/2, stopTexture.Height);
          }
         public void Initialize()
         {
@@ -66,28 +68,30 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                 spriteBatch.Draw(stopTexture,position,Color.White);
             }
 
-            switch (playerState)
-            {
-                    case PLAYER_STATE.walkingLeft:
-                    Move(new Vector2(-5,0));
-                    break;
-                    case PLAYER_STATE.walkingRight:
-                    Move(new Vector2(5, 0));
-                    break;
-                    case PLAYER_STATE.stop:
-                    break;
-            }
+            
         }
 
          public void Update(GameTime gameTime)
          {
              if (Keyboard.GetState().IsKeyDown(Keys.Left))
              {
-                 playerState = PLAYER_STATE.walkingLeft;
+                 if(position.X+origin.X>Game1.MinXPosition)
+                 Move(new Vector2(-5,0));
              }
              else if (Keyboard.GetState().IsKeyDown(Keys.Right))
              {
-                 playerState = PLAYER_STATE.walkingRight;
+                 if (position.X + origin.X < Game1.MaxXPosition)
+                 Move(new Vector2(5, 0));
+             }
+             if (Keyboard.GetState().IsKeyDown(Keys.Up))
+             {
+                 if (position.Y + origin.Y > Game1.MinYPosition)
+                 Move(new Vector2(0,-5));
+             }
+             else if (Keyboard.GetState().IsKeyDown(Keys.Down))
+             {
+                 if (position.Y + origin.Y < Game1.MaxYPosition)
+                 Move(new Vector2(0,5));
              }
              else
              {
