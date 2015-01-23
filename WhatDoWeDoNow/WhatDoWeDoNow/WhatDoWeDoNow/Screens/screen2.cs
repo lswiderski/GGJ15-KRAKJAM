@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using WhatDoWeDoNow.ScreenManager;
@@ -11,8 +12,8 @@ namespace WhatDoWeDoNow.Screens
 {
     class Screen2 : Screen
     {
-        public Screen2(GraphicsDevice device)
-            : base(device, "screen2")
+        public Screen2(GraphicsDevice device, ContentManager _content)
+            : base(device, _content, "screen2")
         {
 
         }
@@ -30,7 +31,7 @@ namespace WhatDoWeDoNow.Screens
 
         public override void Draw(GameTime gameTime)
         {
-            _device.Clear(Color.Brown);
+            device.Clear(Color.Brown);
             base.Draw(gameTime);
         }
 

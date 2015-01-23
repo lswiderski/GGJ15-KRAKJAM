@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using WhatDoWeDoNow.ScreenManager;
@@ -11,13 +12,16 @@ namespace WhatDoWeDoNow.Screens
 {
     class Screen1 : Screen
     {
-        public Screen1(GraphicsDevice device)
-            : base(device, "screen1")
+        private Texture2D testTexture2D;
+        public Screen1(GraphicsDevice device, ContentManager _content)
+            : base(device,_content, "screen1")
         {
         }
 
         public override bool Init()
         {
+            testTexture2D = content.Load<Texture2D>("testpng");
+
             return base.Init();
         }
 
@@ -28,12 +32,30 @@ namespace WhatDoWeDoNow.Screens
 
         public override void Draw(GameTime gameTime)
         {
-            _device.Clear(Color.CornflowerBlue);
+            device.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin(SpriteSortMode.Deferred,
+                     BlendState.AlphaBlend,
+                     null,
+                     null,
+                     null,
+                     null,
+                     camera.get_transformation(device));
+            spriteBatch.Draw(testTexture2D,Vector2.Zero,Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
 
         public override void Update(GameTime gameTime)
         {
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+            {
+                camera.Move(new Vector2(-5,0));
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+            {
+                camera.Move(new Vector2(5,0));
+            }
+
             // Check if m is pressed and go to screen2
             if (Keyboard.GetState().IsKeyDown(Keys.M))
             {

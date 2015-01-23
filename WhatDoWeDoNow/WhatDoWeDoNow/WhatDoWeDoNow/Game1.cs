@@ -25,6 +25,10 @@ namespace WhatDoWeDoNow
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferHeight = 786;
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.IsFullScreen = false;
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -35,8 +39,8 @@ namespace WhatDoWeDoNow
         /// </summary>
         protected override void Initialize()
         {
-            SCREEN_MANAGER.add_screen(new Screen1(GraphicsDevice));
-            SCREEN_MANAGER.add_screen(new Screen2(GraphicsDevice));
+            SCREEN_MANAGER.add_screen(new Screen1(GraphicsDevice,Content));
+            SCREEN_MANAGER.add_screen(new Screen2(GraphicsDevice,Content));
 
             SCREEN_MANAGER.goto_screen("screen1");
 
@@ -73,6 +77,8 @@ namespace WhatDoWeDoNow
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
+            if(Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
             SCREEN_MANAGER.Update(gameTime);

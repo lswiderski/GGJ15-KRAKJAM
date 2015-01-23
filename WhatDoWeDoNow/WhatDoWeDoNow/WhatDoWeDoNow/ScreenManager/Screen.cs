@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace WhatDoWeDoNow.ScreenManager
 {
     public class Screen
     {
-        protected GraphicsDevice _device = null;
+        protected GraphicsDevice device = null;
+        protected ContentManager content = null;
+        protected SpriteBatch spriteBatch;
+        protected Camera2d camera;
         /// <summary>
         /// Screen Constructor
         /// </summary>
         /// <param name="name">Must be unique since when you use ScreenManager is per name</param>
-        public Screen(GraphicsDevice device, string name)
+        public Screen(GraphicsDevice _device, ContentManager _content, string name)
         {
             Name = name;
-            _device = device;
+            this.device = _device;
+            content = _content;
+            
         }
 
         ~Screen()
@@ -37,6 +43,8 @@ namespace WhatDoWeDoNow.ScreenManager
         /// <returns></returns>
         public virtual bool Init()
         {
+            spriteBatch = new SpriteBatch(device);
+            camera = new Camera2d();
             return true;
         }
 
