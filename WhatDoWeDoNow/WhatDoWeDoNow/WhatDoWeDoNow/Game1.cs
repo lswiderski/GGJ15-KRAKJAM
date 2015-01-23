@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using WhatDoWeDoNow.ScreenManager;
+using WhatDoWeDoNow.Screens;
 
 namespace WhatDoWeDoNow
 {
@@ -33,7 +35,10 @@ namespace WhatDoWeDoNow
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            SCREEN_MANAGER.add_screen(new Screen1(GraphicsDevice));
+            SCREEN_MANAGER.add_screen(new Screen2(GraphicsDevice));
+
+            SCREEN_MANAGER.goto_screen("screen1");
 
             base.Initialize();
         }
@@ -47,7 +52,7 @@ namespace WhatDoWeDoNow
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            SCREEN_MANAGER.Init();
         }
 
         /// <summary>
@@ -70,7 +75,7 @@ namespace WhatDoWeDoNow
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            SCREEN_MANAGER.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -81,9 +86,7 @@ namespace WhatDoWeDoNow
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            SCREEN_MANAGER.Draw(gameTime);
 
             base.Draw(gameTime);
         }
