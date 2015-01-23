@@ -14,6 +14,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
     {
         private Texture2D background;
         private Player player;
+        private Dead dead;
         public MainGameScreen(GraphicsDevice device, ContentManager _content)
             : base(device, _content, "MainGame")
         {
@@ -26,6 +27,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             background = content.Load<Texture2D>("room");
             camera.Pos = new Vector2(1366/2,786/2);
             player = new Player(content);
+            dead = new Dead(content);
             return r;
         }
 
@@ -46,8 +48,9 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                      camera.get_transformation(device));
             
            // player.Draw(gameTime, spriteBatch, new Vector2(20, 20), SpriteEffects.None);
-            spriteBatch.Draw(background, Vector2.Zero, Color.White);
+            spriteBatch.Draw(background, new Rectangle(0,0,1048,786), new Rectangle(0,0,1366,786), Color.White);
             player.Draw(gameTime, spriteBatch);
+            dead.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
