@@ -40,7 +40,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
              walkingAnimationTexture = _content.Load<Texture2D>("testanimation");
              walkingAnimation = new Animation(walkingAnimationTexture,0.2f,true,30);
              player.PlayAnimation(walkingAnimation);
-             stopTexture = _content.Load<Texture2D>("testpng");
+             stopTexture = _content.Load<Texture2D>("Ludek");
              position = new Vector2(300,300);
              origin = new Vector2(stopTexture.Width/2, stopTexture.Height);
          }
@@ -66,6 +66,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             else if(playerState == PLAYER_STATE.stop)
             {
                 spriteBatch.Draw(stopTexture,position,Color.White);
+
             }
 
             
