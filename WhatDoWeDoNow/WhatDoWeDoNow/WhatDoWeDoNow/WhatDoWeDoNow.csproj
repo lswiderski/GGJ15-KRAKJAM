@@ -75,6 +75,8 @@
     <Compile Include="Animation.cs" />
     <Compile Include="AnimationPlayer.cs" />
     <Compile Include="Camera2D.cs" />
+    <Compile Include="Door.cs" />
+    <Compile Include="Primitives.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
@@ -82,6 +84,10 @@
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="Screens\MainScreen\MainGameScreen.cs" />
     <Compile Include="Screens\MainScreen\Player.cs" />
+    <Compile Include="Screens\MainScreen\Room1.cs" />
+    <Compile Include="Screens\MainScreen\Room2.cs" />
+    <Compile Include="Screens\MainScreen\Room3.cs" />
+    <Compile Include="Screens\MainScreen\Room4.cs" />
     <Compile Include="Screens\Screen1.cs" />
     <Compile Include="Screens\screen2.cs" />
   </ItemGroup>

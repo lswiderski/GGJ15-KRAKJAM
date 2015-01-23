@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -25,7 +26,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
          private Animation walkingAnimation;
          private Vector2 position;
          private Vector2 origin;
-
+         public Rectangle BoundingBox { get { return new Rectangle((int)position.X,(int)position.Y, stopTexture.Width,stopTexture.Height);} }
          public Vector2 Position
          {
              get
@@ -68,9 +69,14 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                 spriteBatch.Draw(stopTexture,position,Color.White);
 
             }
-
+            DrawDebug(spriteBatch);
             
         }
+
+         public void DrawDebug(SpriteBatch spriteBatch)
+         {
+             spriteBatch.DrawRectangle(BoundingBox,Color.Green);
+         }
 
          public void Update(GameTime gameTime)
          {
