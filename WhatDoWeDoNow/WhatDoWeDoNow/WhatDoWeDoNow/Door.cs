@@ -13,10 +13,12 @@ namespace WhatDoWeDoNow
         private Texture2D texture;
         public Rectangle BoundingBox;
         private string nextRoom;
+        public bool IsOpen;
         public Door(Rectangle rec, string destroom)
         {
             BoundingBox = rec;
             nextRoom = destroom;
+            IsOpen = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -26,6 +28,7 @@ namespace WhatDoWeDoNow
 
         public void Go()
         {
+            if(IsOpen)
             SCREEN_MANAGER.goto_screen(nextRoom);
         }
         void DrawDebug(SpriteBatch spriteBatch)
