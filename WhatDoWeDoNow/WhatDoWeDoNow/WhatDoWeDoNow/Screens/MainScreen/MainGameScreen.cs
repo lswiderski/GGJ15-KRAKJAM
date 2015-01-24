@@ -15,6 +15,9 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         private Texture2D background;
         private Player player;
         private Dead dead;
+        private List<Door> doors;
+        private KeyboardState newState;
+        private KeyboardState oldState;
         public MainGameScreen(GraphicsDevice device, ContentManager _content)
             : base(device, _content, "MainGame")
         {
@@ -28,6 +31,13 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             camera.Pos = new Vector2(1366/2,786/2);
             player = new Player(content);
             dead = new Dead(content);
+            player.Position = new Vector2(500,400);
+            doors = new List<Door>();
+            doors.Add(new Door(new Rectangle(250,400,30,100),"Room1"));
+            doors.Add(new Door(new Rectangle(450, 150, 100, 30), "Room2"));
+            doors.Add(new Door(new Rectangle(800, 400, 30, 100), "Room3"));
+            doors.Add(new Door(new Rectangle(450, 600, 100, 30), "Room4"));
+            oldState = Keyboard.GetState();
             return r;
         }
 
@@ -49,6 +59,19 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             
            // player.Draw(gameTime, spriteBatch, new Vector2(20, 20), SpriteEffects.None);
             spriteBatch.Draw(background, new Rectangle(0,0,1048,786), new Rectangle(0,0,1366,786), Color.White);
+
+            foreach (var door in doors)
+            {
+                door.Draw(spriteBatch);
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.K))
+            {
+                foreach (var door in doors)
+                {
+                    door.IsOpen = true;
+                }
+                
+            }
             player.Draw(gameTime, spriteBatch);
             dead.Draw(spriteBatch);
             spriteBatch.End();
@@ -57,13 +80,26 @@ namespace WhatDoWeDoNow.Screens.MainScreen
 
         public override void Update(GameTime gameTime)
         {
+            newState = Keyboard.GetState();
             player.Update(gameTime);
+            if (newState.IsKeyDown(Keys.Space) && !oldState.IsKeyDown(Keys.Space))
+            {
+                foreach (var door in doors)
+                {
+                    if (player.BoundingBox.Intersects(door.BoundingBox))
+                    {
+                        door.Go();
+                    }
+                }
+            }
+            
             // Check if n is pressed and go to screen2
             if (Keyboard.GetState().IsKeyDown(Keys.N))
             {
                 SCREEN_MANAGER.goto_screen("screen1");
             }
             base.Update(gameTime);
+            oldState = newState;
         }
     }
 }

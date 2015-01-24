@@ -21,10 +21,12 @@ namespace WhatDoWeDoNow
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        public static int MinXPosition = 100;
-        public static int MinYPosition = 100;
-        public static int MaxXPosition = 1048;
-        public static int MaxYPosition = 786;
+        public static int MinXPosition = 250;
+        public static int MinYPosition = 150;
+        public static int MaxXPosition = 808;
+        public static int MaxYPosition = 686;
+        private Song BGM;
+        private LifeTimer timer;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -46,6 +48,10 @@ namespace WhatDoWeDoNow
             SCREEN_MANAGER.add_screen(new Screen1(GraphicsDevice,Content));
             SCREEN_MANAGER.add_screen(new Screen2(GraphicsDevice,Content));
             SCREEN_MANAGER.add_screen(new MainGameScreen(GraphicsDevice, Content));
+            SCREEN_MANAGER.add_screen(new Room1(GraphicsDevice, Content));
+            SCREEN_MANAGER.add_screen(new Room2(GraphicsDevice, Content));
+            SCREEN_MANAGER.add_screen(new Room3(GraphicsDevice, Content));
+            SCREEN_MANAGER.add_screen(new Room4(GraphicsDevice, Content));
             SCREEN_MANAGER.goto_screen("MainGame");
 
             base.Initialize();
@@ -59,8 +65,11 @@ namespace WhatDoWeDoNow
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            BGM = Content.Load<Song>("MyVeryOwnDeadShip");
+            MediaPlayer.Play(BGM);
+            MediaPlayer.IsRepeating = true;
             SCREEN_MANAGER.Init();
+            timer = new LifeTimer();
         }
 
         /// <summary>
@@ -86,7 +95,7 @@ namespace WhatDoWeDoNow
                 this.Exit();
 
             SCREEN_MANAGER.Update(gameTime);
-
+            timer.Update(gameTime);
             base.Update(gameTime);
         }
 
