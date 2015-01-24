@@ -20,10 +20,10 @@ namespace WhatDoWeDoNow.Screens.MainScreen
          }
 
          private PLAYER_STATE playerState;
-         private Texture2D walkingAnimationTexture;
+        // private Texture2D walkingAnimationTexture;
          private Texture2D stopTexture;
-         private AnimationPlayer player;
-         private Animation walkingAnimation;
+         //private AnimationPlayer player;
+         //private Animation walkingAnimation;
          private Vector2 position;
          private Vector2 origin;
          public Rectangle BoundingBox { get { return new Rectangle((int)position.X,(int)position.Y, stopTexture.Width,stopTexture.Height);} }
@@ -38,9 +38,9 @@ namespace WhatDoWeDoNow.Screens.MainScreen
 
          public Player(ContentManager _content)
          {
-             walkingAnimationTexture = _content.Load<Texture2D>("testanimation");
-             walkingAnimation = new Animation(walkingAnimationTexture,0.2f,true,30);
-             player.PlayAnimation(walkingAnimation);
+             //walkingAnimationTexture = _content.Load<Texture2D>("testanimation");
+             //walkingAnimation = new Animation(walkingAnimationTexture,0.2f,true,30);
+             //player.PlayAnimation(walkingAnimation);
              stopTexture = _content.Load<Texture2D>("Ludek");
              position = new Vector2(300,300);
              origin = new Vector2(stopTexture.Width/2, stopTexture.Height);
@@ -58,11 +58,11 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         {
             if (playerState == PLAYER_STATE.walkingLeft)
             {
-                player.Draw(gameTime,spriteBatch,position,SpriteEffects.None );
+                //player.Draw(gameTime,spriteBatch,position,SpriteEffects.None );
             }
             else if (playerState == PLAYER_STATE.walkingRight)
             {
-                player.Draw(gameTime, spriteBatch, position, SpriteEffects.FlipVertically);
+                //player.Draw(gameTime, spriteBatch, position, SpriteEffects.FlipVertically);
             }
             else if(playerState == PLAYER_STATE.stop)
             {
