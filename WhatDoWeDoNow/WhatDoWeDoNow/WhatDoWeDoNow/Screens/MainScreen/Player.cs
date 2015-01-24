@@ -27,7 +27,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
          //private Animation walkingAnimation;
          private Vector2 position;
          private Vector2 origin;
-         public Rectangle BoundingBox { get { return new Rectangle((int)position.X,(int)position.Y, stopTexture.Width,stopTexture.Height);} }
+         public Rectangle BoundingBox { get { return new Rectangle((int)position.X + (stopTexture.Width / 2 - 30),(int)position.Y+ (stopTexture.Height - 40), 60, 20); } }
          public Vector2 Position
          {
              get
