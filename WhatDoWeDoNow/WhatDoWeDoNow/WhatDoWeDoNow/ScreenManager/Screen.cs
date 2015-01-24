@@ -91,7 +91,7 @@ namespace WhatDoWeDoNow.ScreenManager
             {
                 if (dr.IsOpen)
                 {
-                    overlaylevel = 1- (player.BoundingBox.X - dr.BoundingBox.X) / 30;
+                    overlaylevel = 1 - (float)(player.BoundingBox.X - dr.BoundingBox.X) / 30;
                 }
 
             }
@@ -101,7 +101,7 @@ namespace WhatDoWeDoNow.ScreenManager
             {
                 if (dr3.IsOpen)
                 {
-                    var x =(player.BoundingBox.X + player.BoundingBox.Width - dr3.BoundingBox.X) / 30;
+                    var x = (float)(player.BoundingBox.X + player.BoundingBox.Width - dr3.BoundingBox.X) / 30;
                     overlaylevel = x;
                 }
             }
@@ -111,7 +111,7 @@ namespace WhatDoWeDoNow.ScreenManager
             {
                 if (dr2.IsOpen)
                 {
-                    overlaylevel = 1 - (player.BoundingBox.Y - dr2.BoundingBox.Y) / 30;
+                    overlaylevel = 1 - (float)(player.BoundingBox.Y - dr2.BoundingBox.Y) / 30;
                 }
             }
             else if (player.BoundingBox.X > dr4.BoundingBox.X &&
@@ -120,7 +120,7 @@ namespace WhatDoWeDoNow.ScreenManager
             {
                 if (dr4.IsOpen)
                 {
-                    overlaylevel = (player.BoundingBox.Y - dr4.BoundingBox.Y) / 25;
+                    overlaylevel = (float)(player.BoundingBox.Y - dr4.BoundingBox.Y) / 25;
                 }
             }
 
