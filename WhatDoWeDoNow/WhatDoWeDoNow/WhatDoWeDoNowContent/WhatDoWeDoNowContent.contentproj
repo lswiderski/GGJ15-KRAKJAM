@@ -63,11 +63,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyVeryOwnDeadShip.wma">
-      <Name>MyVeryOwnDeadShip</Name>
-      <Importer>WmaImporter</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
+    <None Include="Zadania.txt">
+      <Name>Zadania</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
