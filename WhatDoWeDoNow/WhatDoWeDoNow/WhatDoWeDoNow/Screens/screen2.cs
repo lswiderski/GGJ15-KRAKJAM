@@ -31,7 +31,7 @@ namespace WhatDoWeDoNow.Screens
 
         public override void Draw(GameTime gameTime)
         {
-            device.Clear(Color.Brown);
+            device.Clear(Color.Black);
             base.Draw(gameTime);
         }
 

@@ -57,7 +57,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
 
         public override void Draw(GameTime gameTime)
         {
-            device.Clear(Color.Brown);
+            device.Clear(Color.Black);
             spriteBatch.Begin(SpriteSortMode.Deferred,
                      BlendState.AlphaBlend,
                      null,
