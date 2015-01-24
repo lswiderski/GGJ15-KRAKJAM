@@ -82,6 +82,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         {
             newState = Keyboard.GetState();
             player.Update(gameTime);
+            dead.Update();
             if (newState.IsKeyDown(Keys.Space) && !oldState.IsKeyDown(Keys.Space))
             {
                 foreach (var door in doors)

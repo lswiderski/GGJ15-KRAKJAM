@@ -65,9 +65,9 @@ namespace WhatDoWeDoNow
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            BGM = Content.Load<Song>("MyVeryOwnDeadShip");
-            MediaPlayer.Play(BGM);
-            MediaPlayer.IsRepeating = true;
+         //   BGM = Content.Load<Song>("MyVeryOwnDeadShip");
+        //    MediaPlayer.Play(BGM);
+          //  MediaPlayer.IsRepeating = true;
             SCREEN_MANAGER.Init();
             timer = new LifeTimer();
         }

@@ -63,16 +63,36 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MySpriteFont.spritefont">
+      <Name>MySpriteFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <None Include="Zadania.txt">
       <Name>Zadania</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyVeryOwnDeadShip.wma">
-      <Name>MyVeryOwnDeadShip</Name>
-      <Importer>WmaImporter</Importer>
-      <Processor>SongProcessor</Processor>
+    <Compile Include="smierc1.jpg">
+      <Name>smierc1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="smierc2.jpg">
+      <Name>smierc2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="smierc3.jpg">
+      <Name>smierc3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="smierc4.jpg">
+      <Name>smierc4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
