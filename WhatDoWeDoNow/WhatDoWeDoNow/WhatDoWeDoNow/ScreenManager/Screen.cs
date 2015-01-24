@@ -19,6 +19,7 @@ namespace WhatDoWeDoNow.ScreenManager
         protected bool Done;
 
         protected Player player;
+        private Dead dead;
 
         protected List<Door> doors;
 
@@ -31,6 +32,7 @@ namespace WhatDoWeDoNow.ScreenManager
         /// <param name="name">Must be unique since when you use ScreenManager is per name</param>
         public Screen(GraphicsDevice _device, ContentManager _content, string name)
         {
+
             Name = name;
             this.device = _device;
             content = _content;
@@ -58,6 +60,7 @@ namespace WhatDoWeDoNow.ScreenManager
             spriteBatch = new SpriteBatch(device);
             camera = new Camera2d();
             doors = new List<Door>();
+            dead = new Dead(content);
             doors.Add(new Door(new Rectangle(250, 400, 30, 100), "Room1", PLAYER_ENTER_FROM.Left, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
             doors.Add(new Door(new Rectangle(450, 150, 100, 30), "Room2", PLAYER_ENTER_FROM.Up, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
             doors.Add(new Door(new Rectangle(800, 400, 30, 100), "Room3", PLAYER_ENTER_FROM.Right, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
@@ -138,11 +141,14 @@ namespace WhatDoWeDoNow.ScreenManager
                     }
                 }
             }
+            dead.Update();
         }
 
         public virtual void Draw(GameTime gameTime)
         {
-
+            spriteBatch.Begin();
+            dead.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
     }

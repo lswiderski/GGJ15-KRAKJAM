@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using System.IO;
 using Microsoft.Xna.Framework.Input;
 using WhatDoWeDoNow.ScreenManager;
+using System.Diagnostics;
 
 namespace WhatDoWeDoNow.Screens.MainScreen
 {
@@ -94,30 +95,66 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             }
         }
         bool MouseLeftTemp;
-        bool View = true;
+        bool View = false;
         public void Update()
         {
-            if (View) { 
-                if (Mouse.GetState().LeftButton == ButtonState.Pressed && Mouse.GetState().X > CommentsPosition.X && Mouse.GetState().Y > CommentsPosition.Y &&
-                    Mouse.GetState().X < CommentsPosition.X+ Comments.Width && Mouse.GetState().Y < CommentsPosition.Y + Comments.Height)
+            i = 0;
+            foreach(string[] temp in Zadania){
+                
+                if (temp[0] == "null" && temp[4] == SCREEN_MANAGER.ActiveScreen.Name && View == false)
                 {
-                    MouseLeftTemp = true;      
+                    Debug.WriteLine(i);
+                    View = true;
+                    Zadania[i][0] = "yes";
+                    label = Zadania[i][3];
+                    break;
+                }
+                i++;
+               // Debug.WriteLine(i);
+            }
+
+
+           // if (View == false)
+           // do{
+           //     if (i >= Zadania.Count()-1) break;
+           //     i++;
+           //     label = Zadania[i][3];
+           //     if (i >= Zadania.Count() - 1) break;
+           //     if (Zadania[i][0] != "null") i++;
+           // }
+           // while ((Zadania[i][4] != SCREEN_MANAGER.ActiveScreen.Name));
+           // if(i != -1 && i<= Zadania.Count()){
+           //     View = true;
+           //     Zadania[i][0] = "yes";
+           // }
+           // else View = false;
+            if (View)
+            {
+                if (Mouse.GetState().LeftButton == ButtonState.Pressed && Mouse.GetState().X > CommentsPosition.X && Mouse.GetState().Y > CommentsPosition.Y &&
+                    Mouse.GetState().X < CommentsPosition.X + Comments.Width && Mouse.GetState().Y < CommentsPosition.Y + Comments.Height)
+                {
+                    MouseLeftTemp = true;
                 }
                 if (Mouse.GetState().LeftButton == ButtonState.Released && MouseLeftTemp)
                 {
                     MouseLeftTemp = false;
-                    label = Zadania[i][3];
+                    View = false;
+                    i = 0;
                     licznik2 = 0;
                     licznik = 0;
-                    i++;
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter("Zadania.txt"))
+                    {
+                        foreach (string[] line in Zadania)
+                        {
+                          
+                                file.WriteLine(line[0]+";"+line[1]+";"+line[2]+";"+line[3]+";"+line[4]);
+                            
+                        }
+                    }
+
                 }
-                
+
             }
-            if (Zadania[i][4] == SCREEN_MANAGER.ActiveScreen.Name)
-            {
-                View = true;
-            }
-            else View = false;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
     class MainGameScreen : Screen
     {
         private Texture2D background;
-        protected Dead dead;
+        
         private KeyboardState newState;
         private KeyboardState oldState;
         private bool inited = false;
@@ -30,7 +30,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             blackoverlay = content.Load<Texture2D>("blackoverlay");
             camera.Pos = new Vector2(1366 / 2, 786 / 2);
             player = new Player(content);
-            dead = new Dead(content);
+            
             player.Position = new Vector2(500, 400);
             
            
@@ -101,7 +101,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
 
             }
             player.Draw(gameTime, spriteBatch);
-            dead.Draw(spriteBatch);
+
             spriteBatch.Draw(blackoverlay, new Rectangle(0, 0, 1048, 786), blackoverlay.Bounds, new Color(0, 0, 0, overlaylevel));
             spriteBatch.End();
             base.Draw(gameTime);
@@ -111,7 +111,6 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         {
             newState = Keyboard.GetState();
             player.Update(gameTime);
-            dead.Update();
 
            
             // Check if n is pressed and go to screen2

@@ -54,10 +54,6 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-    <None Include="Zadania.txt">
-      <Name>Zadania</Name>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="smierc1.jpg">

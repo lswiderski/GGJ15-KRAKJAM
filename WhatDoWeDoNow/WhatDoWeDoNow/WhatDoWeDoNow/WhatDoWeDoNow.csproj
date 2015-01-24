@@ -82,7 +82,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="ScreenManager\Screen.cs" />
     <Compile Include="ScreenManager\ScreenManager.cs" />
-    <Compile Include="Screens\MainScreen\Dead.cs" />
+    <Compile Include="Dead.cs" />
     <Compile Include="Screens\MainScreen\MainGameScreen.cs" />
     <Compile Include="Screens\MainScreen\Player.cs" />
     <Compile Include="Screens\MainScreen\Room1.cs" />

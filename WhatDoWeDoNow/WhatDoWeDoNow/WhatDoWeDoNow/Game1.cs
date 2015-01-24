@@ -74,6 +74,7 @@ namespace WhatDoWeDoNow
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
          //   BGM = Content.Load<Song>("MyVeryOwnDeadShip");
         //    MediaPlayer.Play(BGM);
           //  MediaPlayer.IsRepeating = true;
@@ -105,6 +106,8 @@ namespace WhatDoWeDoNow
 
             SCREEN_MANAGER.Update(gameTime);
             timer.Update(gameTime);
+
+
             base.Update(gameTime);
         }
 
@@ -115,7 +118,6 @@ namespace WhatDoWeDoNow
         protected override void Draw(GameTime gameTime)
         {
             SCREEN_MANAGER.Draw(gameTime);
-
             base.Draw(gameTime);
         }
     }

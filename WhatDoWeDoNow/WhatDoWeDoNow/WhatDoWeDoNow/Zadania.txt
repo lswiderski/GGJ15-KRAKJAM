@@ -1,8 +1,8 @@
-null;1;1;Witaj graczu...;MainGame
-null;2;1;Lubisz zabawy?;MainGame
-null;1;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;MainGame
-null;1;3;Zdecyduj co jest ci niezbêdne, a co jesteœ w stanie poœwiêciæ dla odniesienia sukcesu.;MainGame
-null;2;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;Room1
-null;2;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;Room2
-null;2;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;Room3
-null;2;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;Room4
+null;1;1;Click Me;MainGame
+null;1;2;to jest 1 pokoj;MainGame
+null;1;1;to tez jest 1 pokoj;MainGame
+null;1;2;ten nazywa sie room1;Room1
+null;1;3;mmmmmmmmmmmmmmm room2;Room2
+null;1;3;to tez :);Room2
+null;1;3;to ostatni room3;Room3
+null;1;3;drugi room 3;Room3
