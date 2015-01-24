@@ -3,3 +3,6 @@ null;2;1;Lubisz zabawy?;MainGame
 null;1;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;MainGame
 null;1;3;Zdecyduj co jest ci niezbêdne, a co jesteœ w stanie poœwiêciæ dla odniesienia sukcesu.;MainGame
 null;2;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;Room1
+null;2;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;Room2
+null;2;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;Room3
+null;2;2;Aby ocalic swoje nedzne zycie, czekaja cie trudy wyborow...;Room4
