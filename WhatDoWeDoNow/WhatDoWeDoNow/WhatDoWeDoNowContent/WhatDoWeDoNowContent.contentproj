@@ -118,13 +118,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ludek1.png">
-      <Name>Ludek1</Name>
+    <Compile Include="closedDoor.png">
+      <Name>closedDoor</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Ludek2.png">
-      <Name>Ludek2</Name>
+    <Compile Include="openedDoor.png">
+      <Name>openedDoor</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

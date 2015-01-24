@@ -14,6 +14,7 @@ namespace WhatDoWeDoNow.ScreenManager
         protected ContentManager content = null;
         protected SpriteBatch spriteBatch;
         protected Camera2d camera;
+        protected bool Done;
         /// <summary>
         /// Screen Constructor
         /// </summary>
@@ -23,7 +24,8 @@ namespace WhatDoWeDoNow.ScreenManager
             Name = name;
             this.device = _device;
             content = _content;
-            
+            Done = false;
+
         }
 
         ~Screen()
