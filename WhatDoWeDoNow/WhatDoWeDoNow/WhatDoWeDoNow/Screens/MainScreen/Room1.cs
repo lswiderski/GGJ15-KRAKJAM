@@ -26,7 +26,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         public override bool Init()
         {
             var r = base.Init();
-            background = content.Load<Texture2D>("room");
+            background = content.Load<Texture2D>("room1");
             camera.Pos = new Vector2(1366 / 2, 786 / 2);
             player = new Player(content);
             player.Position = new Vector2(500, 400);
