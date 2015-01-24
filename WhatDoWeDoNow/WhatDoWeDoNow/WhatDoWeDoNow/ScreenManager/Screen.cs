@@ -91,7 +91,7 @@ namespace WhatDoWeDoNow.ScreenManager
             {
                 if (dr.IsOpen)
                 {
-                    overlaylevel = 1 - (player.BoundingBox.X - dr.BoundingBox.X) / 30;
+                    overlaylevel = 1- (player.BoundingBox.X - dr.BoundingBox.X) / 30;
                 }
 
             }
@@ -101,7 +101,8 @@ namespace WhatDoWeDoNow.ScreenManager
             {
                 if (dr3.IsOpen)
                 {
-                    overlaylevel = (player.BoundingBox.X + player.BoundingBox.Width - dr3.BoundingBox.X) / 30;
+                    var x =(player.BoundingBox.X + player.BoundingBox.Width - dr3.BoundingBox.X) / 30;
+                    overlaylevel = x;
                 }
             }
             else if (player.BoundingBox.X > dr2.BoundingBox.X &&
