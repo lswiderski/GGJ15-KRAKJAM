@@ -86,7 +86,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                      camera.get_transformation(device));
 
             // player.Draw(gameTime, spriteBatch, new Vector2(20, 20), SpriteEffects.None);
-            spriteBatch.Draw(background, new Rectangle(0, 0, 1048, 786), new Rectangle(0, 0, 1366, 786), Color.White);
+            spriteBatch.Draw(background, new Rectangle(0, 0, 1048, 786), Color.White);
 
             foreach (var door in doors)
             {
