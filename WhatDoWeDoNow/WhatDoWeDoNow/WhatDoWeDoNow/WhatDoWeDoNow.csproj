@@ -90,6 +90,7 @@
     <Compile Include="Screens\MainScreen\Room4.cs" />
     <Compile Include="Screens\Screen1.cs" />
     <Compile Include="Screens\screen2.cs" />
+    <Compile Include="LifeTimer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

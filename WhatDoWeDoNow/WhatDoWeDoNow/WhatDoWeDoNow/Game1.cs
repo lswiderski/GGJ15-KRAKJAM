@@ -26,6 +26,7 @@ namespace WhatDoWeDoNow
         public static int MaxXPosition = 808;
         public static int MaxYPosition = 686;
         private Song BGM;
+        private LifeTimer timer;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -68,6 +69,7 @@ namespace WhatDoWeDoNow
             MediaPlayer.Play(BGM);
             MediaPlayer.IsRepeating = true;
             SCREEN_MANAGER.Init();
+            timer = new LifeTimer();
         }
 
         /// <summary>
@@ -93,7 +95,7 @@ namespace WhatDoWeDoNow
                 this.Exit();
 
             SCREEN_MANAGER.Update(gameTime);
-
+            timer.Update(gameTime);
             base.Update(gameTime);
         }
 
