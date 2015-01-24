@@ -58,10 +58,10 @@ namespace WhatDoWeDoNow.ScreenManager
             spriteBatch = new SpriteBatch(device);
             camera = new Camera2d();
             doors = new List<Door>();
-            doors.Add(new Door(new Rectangle(250, 400, 30, 100), "Room1", PLAYER_ENTER_FROM.Left, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
-            doors.Add(new Door(new Rectangle(450, 150, 100, 30), "Room2", PLAYER_ENTER_FROM.Up, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
-            doors.Add(new Door(new Rectangle(800, 400, 30, 100), "Room3", PLAYER_ENTER_FROM.Right, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
-            doors.Add(new Door(new Rectangle(450, 600, 100, 30), "Room4", PLAYER_ENTER_FROM.Down, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
+            doors.Add(new Door(new Rectangle(250, 400, 30, 100), "Room1", PLAYER_ENTER_FROM.Left,content));
+            doors.Add(new Door(new Rectangle(450, 150, 100, 30), "Room2", PLAYER_ENTER_FROM.Up,content));
+            doors.Add(new Door(new Rectangle(800, 400, 30, 100), "Room3", PLAYER_ENTER_FROM.Right,content));
+            doors.Add(new Door(new Rectangle(450, 600, 100, 30), "Room4", PLAYER_ENTER_FROM.Down,content));
             return true;
         }
 
@@ -137,6 +137,10 @@ namespace WhatDoWeDoNow.ScreenManager
                         door.Go();
                     }
                 }
+            }
+            foreach (var door in doors)
+            {
+                door.Update(gameTime);
             }
         }
 
