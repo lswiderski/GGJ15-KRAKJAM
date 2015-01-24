@@ -29,29 +29,8 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             background = content.Load<Texture2D>("room4");
             blackoverlay = content.Load<Texture2D>("blackoverlay");
             camera.Pos = new Vector2(1366 / 2, 786 / 2);
-            player = new Player(content);
             dead = new Dead(content);
-            player.Position = new Vector2(500, 400);
-          switch (Game1.PlayerEnterFrom)
-            {
-                case PLAYER_ENTER_FROM.Down:
-                    player.Position = new Vector2(500, 600);
-                    doors[3].IsOpen = true;
-                    break;
-                case PLAYER_ENTER_FROM.Up:
-                    player.Position = new Vector2(460, 152);
-                    doors[1].IsOpen = true;
-                    break;
-                case PLAYER_ENTER_FROM.Left:
-                    player.Position = new Vector2(251, 410);
-                    doors[0].IsOpen = true;
-                    break;
-                case PLAYER_ENTER_FROM.Right:
-                    player.Position = new Vector2(780, 410);
-                    doors[2].IsOpen = true;
-                    break;
 
-            }
             inited = false;
 
             oldState = Keyboard.GetState();

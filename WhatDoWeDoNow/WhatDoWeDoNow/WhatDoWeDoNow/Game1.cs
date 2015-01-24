@@ -28,10 +28,10 @@ namespace WhatDoWeDoNow
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        public static int MinXPosition = 250;
-        public static int MinYPosition = 150;
-        public static int MaxXPosition = 808;
-        public static int MaxYPosition = 786;
+        public static int MinXPosition = 120;
+        public static int MinYPosition = 95;
+        public static int MaxXPosition = 880;
+        public static int MaxYPosition = 670;
         private Song BGM;
         private LifeTimer timer;
         public static PLAYER_ENTER_FROM PlayerEnterFrom;
