@@ -14,6 +14,13 @@ using WhatDoWeDoNow.Screens.MainScreen;
 
 namespace WhatDoWeDoNow
 {
+    public enum PLAYER_ENTER_FROM
+    {
+        Left,
+        Right,
+        Up,
+        Down
+    };
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -24,9 +31,10 @@ namespace WhatDoWeDoNow
         public static int MinXPosition = 250;
         public static int MinYPosition = 150;
         public static int MaxXPosition = 808;
-        public static int MaxYPosition = 686;
+        public static int MaxYPosition = 786;
         private Song BGM;
         private LifeTimer timer;
+        public static PLAYER_ENTER_FROM PlayerEnterFrom;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -35,6 +43,7 @@ namespace WhatDoWeDoNow
             graphics.PreferredBackBufferWidth = 1366;
             graphics.IsFullScreen = false;
             IsMouseVisible = true;
+            PlayerEnterFrom = PLAYER_ENTER_FROM.Left;
         }
 
         /// <summary>

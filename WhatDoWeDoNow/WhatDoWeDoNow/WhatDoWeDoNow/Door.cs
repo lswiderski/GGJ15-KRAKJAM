@@ -14,11 +14,28 @@ namespace WhatDoWeDoNow
         public Rectangle BoundingBox;
         private string nextRoom;
         public bool IsOpen;
-        public Door(Rectangle rec, string destroom)
+        private PLAYER_ENTER_FROM doorPosType;
+        public Door(Rectangle rec, string destroom, PLAYER_ENTER_FROM type)
         {
             BoundingBox = rec;
             nextRoom = destroom;
             IsOpen = false;
+            switch (type)
+            {
+                case PLAYER_ENTER_FROM.Down:
+                    doorPosType = PLAYER_ENTER_FROM.Up;
+                    break;
+                case PLAYER_ENTER_FROM.Up:
+                    doorPosType = PLAYER_ENTER_FROM.Down;
+                    break;
+                case PLAYER_ENTER_FROM.Left:
+                    doorPosType = PLAYER_ENTER_FROM.Right;
+                    break;
+                case PLAYER_ENTER_FROM.Right:
+                   doorPosType = PLAYER_ENTER_FROM.Left;
+                    break;
+            }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -28,8 +45,12 @@ namespace WhatDoWeDoNow
 
         public void Go()
         {
-            if(IsOpen)
-            SCREEN_MANAGER.goto_screen(nextRoom);
+            if (IsOpen)
+            {
+                Game1.PlayerEnterFrom = doorPosType;
+                SCREEN_MANAGER.goto_screen(nextRoom); 
+            }
+               
         }
         void DrawDebug(SpriteBatch spriteBatch)
         {
