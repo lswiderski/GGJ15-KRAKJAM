@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -94,28 +95,29 @@ namespace WhatDoWeDoNow.Screens.MainScreen
 
          public void Update(GameTime gameTime)
          {
+             Debug.WriteLine(position.X +" "+ position.Y);
              if (Keyboard.GetState().IsKeyDown(Keys.Left))
              {  
                  playerState = PLAYER_STATE.run;
-                 if(position.X+origin.X>Game1.MinXPosition)
+                 if(BoundingBox.X>Game1.MinXPosition)
                  Move(new Vector2(-5,0));
              }
              else if (Keyboard.GetState().IsKeyDown(Keys.Right))
              {
                  playerState = PLAYER_STATE.run;
-                 if (position.X + origin.X < Game1.MaxXPosition)
+                 if (BoundingBox.X < Game1.MaxXPosition)
                  Move(new Vector2(5, 0));
              }
              if (Keyboard.GetState().IsKeyDown(Keys.Up))
              {
                  playerState = PLAYER_STATE.run;
-                 if (position.Y + origin.Y > Game1.MinYPosition)
+                 if (BoundingBox.Y > Game1.MinYPosition)
                  Move(new Vector2(0,-5));
              }
              else if (Keyboard.GetState().IsKeyDown(Keys.Down))
              {
                  playerState = PLAYER_STATE.run;
-                 if (position.Y + origin.Y < Game1.MaxYPosition)
+                 if (BoundingBox.Y < Game1.MaxYPosition)
                  Move(new Vector2(0,5));
              }
              else if (!Keyboard.GetState().IsKeyDown(Keys.Left) && !Keyboard.GetState().IsKeyDown(Keys.Right))

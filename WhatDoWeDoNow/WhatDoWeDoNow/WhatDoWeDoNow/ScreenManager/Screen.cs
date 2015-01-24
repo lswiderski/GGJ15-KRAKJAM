@@ -61,10 +61,31 @@ namespace WhatDoWeDoNow.ScreenManager
             camera = new Camera2d();
             doors = new List<Door>();
             dead = new Dead(content);
-            doors.Add(new Door(new Rectangle(250, 400, 30, 100), "Room1", PLAYER_ENTER_FROM.Left, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
-            doors.Add(new Door(new Rectangle(450, 150, 100, 30), "Room2", PLAYER_ENTER_FROM.Up, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
-            doors.Add(new Door(new Rectangle(800, 400, 30, 100), "Room3", PLAYER_ENTER_FROM.Right, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
-            doors.Add(new Door(new Rectangle(450, 600, 100, 30), "Room4", PLAYER_ENTER_FROM.Down, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
+            doors.Add(new Door(new Rectangle(120, 300, 30, 200), "Room1", PLAYER_ENTER_FROM.Left,content));
+            doors.Add(new Door(new Rectangle(390, 100, 270, 30), "Room2", PLAYER_ENTER_FROM.Up,content));
+            doors.Add(new Door(new Rectangle(890, 300, 30, 200), "Room3", PLAYER_ENTER_FROM.Right,content));
+            doors.Add(new Door(new Rectangle(390, 640, 270, 30), "Room4", PLAYER_ENTER_FROM.Down,content));
+            player = new Player(content);
+            switch (Game1.PlayerEnterFrom)
+            {
+                case PLAYER_ENTER_FROM.Down:
+                    player.Position = new Vector2(420, 445);
+                    doors[3].IsOpen = true;
+                    break;
+                case PLAYER_ENTER_FROM.Up:
+                    player.Position = new Vector2(420, -105);
+                    doors[1].IsOpen = true;
+                    break;
+                case PLAYER_ENTER_FROM.Left:
+                    player.Position = new Vector2(55, 215);
+                    doors[0].IsOpen = true;
+                    break;
+                case PLAYER_ENTER_FROM.Right:
+                    player.Position = new Vector2(786, 190);
+                    doors[2].IsOpen = true;
+                    break;
+
+            }
             return true;
         }
 
@@ -140,6 +161,10 @@ namespace WhatDoWeDoNow.ScreenManager
                         door.Go();
                     }
                 }
+            }
+            foreach (var door in doors)
+            {
+                door.Update(gameTime);
             }
             dead.Update();
         }
