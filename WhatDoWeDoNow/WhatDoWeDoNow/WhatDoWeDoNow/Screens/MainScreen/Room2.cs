@@ -38,10 +38,10 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             dead = new Dead(content);
             player.Position = new Vector2(500, 400);
             doors = new List<Door>();
-            doors.Add(new Door(new Rectangle(250, 400, 30, 100), "Room1", PLAYER_ENTER_FROM.Left));
-            doors.Add(new Door(new Rectangle(450, 150, 100, 30), "Room2", PLAYER_ENTER_FROM.Up));
-            doors.Add(new Door(new Rectangle(800, 400, 30, 100), "Room3", PLAYER_ENTER_FROM.Right));
-            doors.Add(new Door(new Rectangle(450, 600, 100, 30), "Room4", PLAYER_ENTER_FROM.Down));
+            doors.Add(new Door(new Rectangle(250, 400, 30, 100), "Room1", PLAYER_ENTER_FROM.Left, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
+            doors.Add(new Door(new Rectangle(450, 150, 100, 30), "Room2", PLAYER_ENTER_FROM.Up, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
+            doors.Add(new Door(new Rectangle(800, 400, 30, 100), "Room3", PLAYER_ENTER_FROM.Right, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
+            doors.Add(new Door(new Rectangle(450, 600, 100, 30), "Room4", PLAYER_ENTER_FROM.Down, content.Load<Texture2D>("closedDoor"), content.Load<Texture2D>("openedDoor")));
             switch (Game1.PlayerEnterFrom)
             {
                 case PLAYER_ENTER_FROM.Down:
@@ -57,7 +57,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     doors[0].IsOpen = true;
                     break;
                 case PLAYER_ENTER_FROM.Right:
-                    player.Position = new Vector2(799, 410);
+                    player.Position = new Vector2(780, 410);
                     doors[2].IsOpen = true;
                     break;
 
@@ -66,6 +66,13 @@ namespace WhatDoWeDoNow.Screens.MainScreen
 
             oldState = Keyboard.GetState();
             overlaylevel = 0f;
+            if (Done)
+            {
+                foreach (var door in doors)
+                {
+                    door.IsOpen = true;
+                }
+            }
             return r;
         }
 
@@ -86,7 +93,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                      camera.get_transformation(device));
 
             // player.Draw(gameTime, spriteBatch, new Vector2(20, 20), SpriteEffects.None);
-            spriteBatch.Draw(background, new Rectangle(0, 0, 1048, 786), new Rectangle(0, 0, 1366, 786), Color.White);
+            spriteBatch.Draw(background, new Rectangle(0, 0, 1048, 786), Color.White);
 
             foreach (var door in doors)
             {
@@ -94,6 +101,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             }
             if (Keyboard.GetState().IsKeyDown(Keys.K))
             {
+                Done = true;
                 foreach (var door in doors)
                 {
                     door.IsOpen = true;
@@ -111,16 +119,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         {
             newState = Keyboard.GetState();
             player.Update(gameTime);
-            if (newState.IsKeyDown(Keys.Space) && !oldState.IsKeyDown(Keys.Space))
-            {
-                foreach (var door in doors)
-                {
-                    if (player.BoundingBox.Intersects(door.BoundingBox))
-                    {
-                        door.Go();
-                    }
-                }
-            }
+            dead.Update();
 
             var dr = doors.ElementAt(0);
             var dr2 = doors.ElementAt(1);
