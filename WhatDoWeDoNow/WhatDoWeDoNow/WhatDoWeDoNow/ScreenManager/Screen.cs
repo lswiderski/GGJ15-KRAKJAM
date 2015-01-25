@@ -25,7 +25,7 @@ namespace WhatDoWeDoNow.ScreenManager
 
         protected Texture2D blackoverlay;
         protected float overlaylevel;
-
+        public bool IsDone {get { return Done; }}
         /// <summary>
         /// Screen Constructor
         /// </summary>

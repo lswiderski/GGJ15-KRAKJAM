@@ -39,6 +39,10 @@ namespace WhatDoWeDoNow.ScreenManager
             _screens.Add(screen);
         }
 
+        static public List<Screen> getList()
+        {
+            return _screens;
+        }
         static public int get_screen_number()
         {
             return _screens.Count;

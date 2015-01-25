@@ -41,6 +41,10 @@ namespace WhatDoWeDoNow
         private Texture2D Vitalitytex;
         private Rectangle Vitalityrec;
         private Rectangle Vitalityrec2;
+        private bool win = false;
+        private bool loss = false;
+        private Texture2D winTexture2D;
+        private Texture2D lossTexture2D;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -90,6 +94,8 @@ namespace WhatDoWeDoNow
             Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width,Vitalitytex.Height);
             SCREEN_MANAGER.Init();
             timer = new LifeTimer();
+            lossTexture2D = Content.Load<Texture2D>("loose");
+            winTexture2D = Content.Load<Texture2D>("win");
         }
 
         /// <summary>
@@ -113,12 +119,32 @@ namespace WhatDoWeDoNow
                 this.Exit();
             if(Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
+            if (!win && !loss)
+            {
+                SCREEN_MANAGER.Update(gameTime);
+                timer.Update(gameTime);
+                Vitality = timer.currentLevel / 1000;
+                Vitalityrec = new Rectangle(1060, 650, Vitalitytex.Width * (int)Vitality / 100, Vitalitytex.Height);
+                Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width * (int)Vitality / 100, Vitalitytex.Height);
+                int wincounter = 0;
+                foreach (var room in SCREEN_MANAGER.getList())
+                {
+                    if (room.IsDone)
+                    {
+                        wincounter++;
+                    }
 
-            SCREEN_MANAGER.Update(gameTime);
-            timer.Update(gameTime);
-            Vitality = timer.currentLevel/1000;
-            Vitalityrec = new Rectangle(1060, 650, Vitalitytex.Width * (int)Vitality/100, Vitalitytex.Height);
-            Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width * (int)Vitality / 100, Vitalitytex.Height);
+                }
+                if (wincounter >= 4 && timer.currentLevel > 0)
+                {
+                    win = true;
+                }
+                if (timer.currentLevel <= 0)
+                {
+                    loss = true;
+                }
+            }
+           
             base.Update(gameTime);
         }
 
@@ -134,6 +160,14 @@ namespace WhatDoWeDoNow
             spriteBatch.Begin();
         //    spriteBatch.Draw(ramytex,ramyrec,Color.White);
             spriteBatch.Draw(Vitalitytex, Vitalityrec, Vitalityrec2, Color.White);
+            if (win)
+            {
+                spriteBatch.Draw(winTexture2D,new Vector2(200,200),Color.White );
+            }
+            if (loss)
+            {
+                spriteBatch.Draw(lossTexture2D, new Vector2(200, 200), Color.White);
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }

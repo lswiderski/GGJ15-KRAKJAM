@@ -174,8 +174,8 @@
       <Name>MyVeryOwnDeadShip</Name>
       <Importer>WmaImporter</Importer>
       <Processor>SongProcessor</Processor>
-      </Compile>
-        </ItemGroup>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Ramy.png">
       <Name>Ramy</Name>
@@ -186,6 +186,18 @@
   <ItemGroup>
     <Compile Include="Vitality.png">
       <Name>Vitality</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="loose.png">
+      <Name>loose</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="win.png">
+      <Name>win</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
