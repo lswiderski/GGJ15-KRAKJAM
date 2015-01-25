@@ -31,6 +31,24 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         private String[] label = {"CLICK ME","false","","","","",""};
         private int i = 0;
         public bool flag = false;
+        public bool odpdone = false;
+        private bool goodanswer = false;
+
+        public bool GoodAnswer
+        {
+            get
+            {
+                return goodanswer;
+            }
+            set
+            {
+                goodanswer = value;
+                if (value == false)
+                {
+                    Game1.timer.currentLevel -=(3f*1000);
+                }
+            }
+        }
 
         public Dead(ContentManager _content)
         {
@@ -116,8 +134,9 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             else
             {
                 spriteBatch.Draw(Head1, HeadPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-                if (flag)
+                if (odpdone)
                 {
+                    flag = true;
                     spriteBatch.Draw(Comments, CommentsPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 
                     spriteBatch.DrawString(mySpriteFont, parseText("Prawidłowa odpowiedz to nr. " + label[6] + ". Wybierz kolejny pokój.", 250), new Vector2(1080, 75 + Head1.Height), Color.Black);
@@ -172,7 +191,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                         label[4] = Zadania[i][7];
                         label[5] = Zadania[i][8];
                         label[6] = Zadania[i][2];
-                        flag = true;
+                        odpdone = true;
                     }
                     break;
                 }
@@ -187,6 +206,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && Mouse.GetState().X > CommentsPosition.X && Mouse.GetState().Y > CommentsPosition.Y &&
                     Mouse.GetState().X < CommentsPosition.X + Comments.Width && Mouse.GetState().Y < CommentsPosition.Y + Comments.Height)
                 {
+                    
                     MouseLeftTemp = true;
                 }
                 if (Mouse.GetState().LeftButton == ButtonState.Released && MouseLeftTemp)
@@ -215,21 +235,44 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && Mouse.GetState().X > Button1.X && Mouse.GetState().Y > Button1.Y &&
                     Mouse.GetState().X < Button1.X + Button.Width && Mouse.GetState().Y < Button1.Y + Button.Height)
                 {
+                    if (label[6] == "1")
+                    {
+                        GoodAnswer = true;
+                    }
+                    else GoodAnswer = false;
                     MouseLeftTemp = true;
                 }
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && Mouse.GetState().X > Button2.X && Mouse.GetState().Y > Button2.Y &&
                    Mouse.GetState().X < Button2.X + Button.Width && Mouse.GetState().Y < Button2.Y + Button.Height)
                 {
+
+                    if (label[6] == "2")
+                    {
+                        GoodAnswer = true;
+                    }
+                    else GoodAnswer = false;
                     MouseLeftTemp = true;
                 }
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && Mouse.GetState().X > Button3.X && Mouse.GetState().Y > Button3.Y &&
                    Mouse.GetState().X < Button3.X + Button.Width && Mouse.GetState().Y < Button3.Y + Button.Height)
                 {
+
+                    if (label[6] == "3")
+                    {
+                        GoodAnswer = true;
+                    }
+                    else GoodAnswer = false;
                     MouseLeftTemp = true;
                 }
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && Mouse.GetState().X > Button4.X && Mouse.GetState().Y > Button4.Y &&
                    Mouse.GetState().X < Button4.X + Button.Width && Mouse.GetState().Y < Button4.Y + Button.Height)
                 {
+
+                    if (label[6] == "4")
+                    {
+                        GoodAnswer = true;
+                    }
+                    else GoodAnswer = false;
                     MouseLeftTemp = true;
                 }
                 if (Mouse.GetState().LeftButton == ButtonState.Released && MouseLeftTemp)

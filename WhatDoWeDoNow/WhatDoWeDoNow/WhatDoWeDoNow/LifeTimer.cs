@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace WhatDoWeDoNow
 {
-    class LifeTimer
+    public class LifeTimer
     {
         private int baseLevel;
         public float currentLevel;

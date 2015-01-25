@@ -34,7 +34,7 @@ namespace WhatDoWeDoNow
         public static int MaxYPosition = 670;
         private Song BGM;
         public float Vitality= 100;
-        private LifeTimer timer;
+        public static LifeTimer timer;
         public static PLAYER_ENTER_FROM PlayerEnterFrom;
         private Texture2D ramytex;
         private Vector2 ramyrec;
