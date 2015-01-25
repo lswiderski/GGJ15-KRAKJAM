@@ -84,10 +84,10 @@ namespace WhatDoWeDoNow
             ramyrec = new Vector2(1060,600);
             Vitalitytex = Content.Load<Texture2D>("Vitality");
             Vitalityrec = new Rectangle(1060, 650 ,Vitalitytex.Width,Vitalitytex.Height);
+            BGM = Content.Load<Song>("MyVeryOwnDeadShip");
+            MediaPlayer.Play(BGM);
+            MediaPlayer.IsRepeating = true;
             Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width,Vitalitytex.Height);
-         //   BGM = Content.Load<Song>("MyVeryOwnDeadShip");
-        //    MediaPlayer.Play(BGM);
-          //  MediaPlayer.IsRepeating = true;
             SCREEN_MANAGER.Init();
             timer = new LifeTimer();
         }
