@@ -88,9 +88,9 @@ namespace WhatDoWeDoNow
             ramyrec = new Vector2(1060,600);
             Vitalitytex = Content.Load<Texture2D>("Vitality");
             Vitalityrec = new Rectangle(1060, 650 ,Vitalitytex.Width,Vitalitytex.Height);
-            BGM = Content.Load<Song>("MyVeryOwnDeadShip");
-            MediaPlayer.Play(BGM);
-            MediaPlayer.IsRepeating = true;
+           // BGM = Content.Load<Song>("MyVeryOwnDeadShip");
+          //  MediaPlayer.Play(BGM);
+          //  MediaPlayer.IsRepeating = true;
             Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width,Vitalitytex.Height);
             SCREEN_MANAGER.Init();
             timer = new LifeTimer();
@@ -153,13 +153,19 @@ namespace WhatDoWeDoNow
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
 
-
+        int licznik=0;
         protected override void Draw(GameTime gameTime)
         {
             SCREEN_MANAGER.Draw(gameTime);
             spriteBatch.Begin();
         //    spriteBatch.Draw(ramytex,ramyrec,Color.White);
-            spriteBatch.Draw(Vitalitytex, Vitalityrec, Vitalityrec2, Color.White);
+            licznik++;
+            if (licznik < 10)
+                spriteBatch.Draw(Vitalitytex, Vitalityrec, Vitalityrec2, Color.White, 0f, Vector2.Zero, SpriteEffects.FlipVertically, 0f);
+            else if (licznik < 20)
+                spriteBatch.Draw(Vitalitytex, Vitalityrec, Vitalityrec2, Color.White);
+            if (licznik == 19)licznik = 0;
+
             if (win)
             {
                 spriteBatch.Draw(winTexture2D,new Vector2(200,200),Color.White );
