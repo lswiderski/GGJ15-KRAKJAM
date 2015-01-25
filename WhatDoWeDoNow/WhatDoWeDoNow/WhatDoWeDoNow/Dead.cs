@@ -30,7 +30,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         private SpriteFont mySpriteFont;
         private String[] label = {"CLICK ME","false","","","","",""};
         private int i = 0;
-        bool flag = false;
+        public bool flag = false;
 
         public Dead(ContentManager _content)
         {
@@ -114,6 +114,9 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             }
             else
             {
+                spriteBatch.Draw(Comments, CommentsPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+
+                spriteBatch.DrawString(mySpriteFont, parseText("Prawidłowa odpowiedz to nr. "+label[6]+". Wybierz kolejny pokój.", 250), new Vector2(1080, 75 + Head1.Height), Color.Black);
                 spriteBatch.Draw(Head1, HeadPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 if (flag)
                 {
