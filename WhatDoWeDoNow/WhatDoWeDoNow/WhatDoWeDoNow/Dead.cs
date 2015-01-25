@@ -110,16 +110,18 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     spriteBatch.DrawString(mySpriteFont, label[3] ,new Vector2(1090, 480), Color.Black);
                     spriteBatch.DrawString(mySpriteFont, label[4] ,new Vector2(1090, 540), Color.Black);
                     spriteBatch.DrawString(mySpriteFont, label[5] , new Vector2(1090, 600), Color.Black);
+
                 }
             }
             else
             {
-                spriteBatch.Draw(Comments, CommentsPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-
-                spriteBatch.DrawString(mySpriteFont, parseText("Prawidłowa odpowiedz to nr. "+label[6]+". Wybierz kolejny pokój.", 250), new Vector2(1080, 75 + Head1.Height), Color.Black);
                 spriteBatch.Draw(Head1, HeadPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                 if (flag)
                 {
+                    spriteBatch.Draw(Comments, CommentsPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+
+                    spriteBatch.DrawString(mySpriteFont, parseText("Prawidłowa odpowiedz to nr. " + label[6] + ". Wybierz kolejny pokój.", 250), new Vector2(1080, 75 + Head1.Height), Color.Black);
+                
                     Color c1,c2,c3,c4;
                     if(label[6] == "1")
                         c1= Color.Green;
@@ -198,8 +200,8 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     {
                         foreach (string[] line in Zadania)
                         {
-                          
-                                file.WriteLine(line[0]+";"+line[1]+";"+line[2]+";"+line[3]+";"+line[4]);
+
+                            file.WriteLine(line[0] + ";" + line[1] + ";" + line[2] + ";" + line[3] + ";" + line[4] + ";" + line[5] + ";" + line[6] + ";" + line[7] + ";" + line[8]);
                             
                         }
                     }
@@ -241,8 +243,8 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     {
                         foreach (string[] line in Zadania)
                         {
-               
-                            file.WriteLine(line[0] + ";" + line[1] + ";" + line[2] + ";" + line[3] + ";" + line[4]);
+
+                            file.WriteLine(line[0] + ";" + line[1] + ";" + line[2] + ";" + line[3] + ";" + line[4] + ";" + line[5] + ";" + line[6] + ";" + line[7] + ";" + line[8]);
                
                         }
                     }

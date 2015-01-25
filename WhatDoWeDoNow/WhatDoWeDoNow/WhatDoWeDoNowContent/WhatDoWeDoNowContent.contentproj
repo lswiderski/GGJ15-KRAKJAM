@@ -170,13 +170,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyVeryOwnDeadShip.wma">
-      <Name>MyVeryOwnDeadShip</Name>
-      <Importer>WmaImporter</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Ramy.png">
       <Name>Ramy</Name>
       <Importer>TextureImporter</Importer>

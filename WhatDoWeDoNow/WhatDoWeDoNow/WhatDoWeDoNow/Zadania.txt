@@ -1,11 +1,11 @@
-null;false;;Witaj w Decyzjach Śmierci;MainGame
-null;false;;Masz 60s na zachowanie życia. Wystarczy, że poprawnie odpowiesz na pytania;MainGame
-null;false;;Uważaj. Złe decyzje będą Cię dużo kosztować;MainGame
-null;false;;Pośpiesz się, masz coraz mniej czasu;Room1
+null;false;;Witaj w Decyzjach Śmierci;MainGame;;;;
+null;false;;Masz 60s na zachowanie życia. Wystarczy, że poprawnie odpowiesz na pytania;MainGame;;;;
+null;false;;Uważaj. Złe decyzje będą Cię dużo kosztować;MainGame;;;;
+null;false;;Pośpiesz się, masz coraz mniej czasu;Room1;;;;
 null;true;1;5 pająków zjada 5 much w 5 minut. W jakim czasie 50 pająków zje 50 much?;Room1;W 5 minut;W 50 minut;W 150 minut;W 100 minut
-null;false;;Myślisz, że uda Ci się wygrać;Room2
+null;false;;Myślisz, że uda Ci się wygrać;Room2;;;;
 null;true;2;Cegła waży kilogram i pół cegły. Ile waży cegła?;Room2;1kg;2kg;1,5kg;3kg
-null;false;;Nie masz ze mną szans;Room3
-null;true;3;- Ile waży ten worek ziemniaków? - 50 kilogramów podzielone przez połowę jego wagi.;Room3;30kg;25kg;10kg;5kg;
-null;false;;Czuję, że niedługo się spotkamy;Room4
+null;false;;Nie masz ze mną szans;Room3;;;;
+null;true;3;- Ile waży ten worek ziemniaków? - 50 kilogramów podzielone przez połowę jego wagi.;Room3;30kg;25kg;10kg;5kg
+null;false;;Czuję, że niedługo się spotkamy;Room4;;;;
 null;true;4;Czy można szybko obliczyć- bez wykonywania żadnych rachunków pisemnych - jaka jest suma wszystkich liczb od 1 do 1000 włącznie?;Room4;Nie;Tak - 65535;Tak - 1000000;Tak - 500500
