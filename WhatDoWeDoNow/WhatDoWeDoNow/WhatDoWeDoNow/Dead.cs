@@ -66,7 +66,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             HeadPosition = new Vector2(1070,20);
             CommentsPosition = new Vector2(1060, 20 + Head1.Height);
             Zadania = new List<string[]>();
-            using (var stream = TitleContainer.OpenStream("Zadania.txt"))
+            using (var stream = TitleContainer.OpenStream(@"Zadania.txt"))
             {
                 using (var reader = new StreamReader(stream))
                 {
@@ -216,7 +216,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     i = 0;
                     licznik2 = 0;
                     licznik = 0;
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter("Zadania.txt"))
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Zadania.txt"))
                     {
                         foreach (string[] line in Zadania)
                         {
@@ -286,7 +286,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     i = 0;
                     licznik2 = 0;
                     licznik = 0;
-                    using (System.IO.StreamWriter file = new System.IO.StreamWriter("Zadania.txt"))
+                    using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Zadania.txt"))
                     {
                         foreach (string[] line in Zadania)
                         {
