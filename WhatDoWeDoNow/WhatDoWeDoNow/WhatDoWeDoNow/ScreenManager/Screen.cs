@@ -167,6 +167,15 @@ namespace WhatDoWeDoNow.ScreenManager
                 door.Update(gameTime);
             }
             dead.Update();
+            if (dead.flag)
+            {
+                Done = true;
+                foreach (var door in doors)
+                {
+                    door.IsOpen = true;
+                }
+
+            }
         }
 
         public virtual void Draw(GameTime gameTime)
