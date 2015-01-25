@@ -69,15 +69,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
             {
                 door.Draw(spriteBatch);
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.K))
-            {
-                Done = true;
-                foreach (var door in doors)
-                {
-                    door.IsOpen = true;
-                }
 
-            }
             player.Draw(gameTime, spriteBatch);
             dead.Draw(spriteBatch);
             spriteBatch.Draw(blackoverlay, new Rectangle(0, 0, 1048, 786), blackoverlay.Bounds, new Color(0, 0, 0, overlaylevel));
