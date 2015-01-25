@@ -23,7 +23,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
         private Vector2 CommentsPosition;
         private List<string[]> Zadania;
         private SpriteFont mySpriteFont;
-        private String label = "CLICK ME";
+        private String[] label = {"CLICK ME","false"};
         private int i = 0;
 
         public Dead(ContentManager _content)
@@ -87,7 +87,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
 
                 spriteBatch.Draw(Comments, CommentsPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
                
-                spriteBatch.DrawString(mySpriteFont, parseText(label, 250) , new Vector2(1080, 75 + Head1.Height), Color.Black);
+                spriteBatch.DrawString(mySpriteFont, parseText(label[0], 250) , new Vector2(1080, 75 + Head1.Height), Color.Black);
             }
             else
             {
@@ -106,7 +106,8 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     Debug.WriteLine(i);
                     View = true;
                     Zadania[i][0] = "yes";
-                    label = Zadania[i][3];
+                    label[0] = Zadania[i][3];
+                    label[1] = Zadania[i][1];
                     break;
                 }
                 i++;

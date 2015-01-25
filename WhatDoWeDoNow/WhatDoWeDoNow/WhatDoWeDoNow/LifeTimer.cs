@@ -10,20 +10,16 @@ namespace WhatDoWeDoNow
     class LifeTimer
     {
         private int baseLevel;
-        private float currentLevel;
+        public float currentLevel;
 
         public LifeTimer()
         {
-            baseLevel = 60;
+            baseLevel = 100 *1000;
             currentLevel = baseLevel;
         }
         public void Update(GameTime gameTime)
         {
-            currentLevel -= gameTime.ElapsedGameTime.Seconds;
-            if (Keyboard.GetState().IsKeyDown(Keys.T))
-            {
-                int x = 0;
-            }
+            currentLevel -= gameTime.ElapsedGameTime.Milliseconds;
         }
     }
 }

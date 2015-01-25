@@ -33,8 +33,14 @@ namespace WhatDoWeDoNow
         public static int MaxXPosition = 880;
         public static int MaxYPosition = 670;
         private Song BGM;
+        public float Vitality= 100;
         private LifeTimer timer;
         public static PLAYER_ENTER_FROM PlayerEnterFrom;
+        private Texture2D ramytex;
+        private Vector2 ramyrec;
+        private Texture2D Vitalitytex;
+        private Rectangle Vitalityrec;
+        private Rectangle Vitalityrec2;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -74,7 +80,11 @@ namespace WhatDoWeDoNow
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            ramytex = Content.Load<Texture2D>("Ramy");
+            ramyrec = new Vector2(1060,600);
+            Vitalitytex = Content.Load<Texture2D>("Vitality");
+            Vitalityrec = new Rectangle(1060, 650 ,Vitalitytex.Width,Vitalitytex.Height);
+            Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width,Vitalitytex.Height);
          //   BGM = Content.Load<Song>("MyVeryOwnDeadShip");
         //    MediaPlayer.Play(BGM);
           //  MediaPlayer.IsRepeating = true;
@@ -106,8 +116,9 @@ namespace WhatDoWeDoNow
 
             SCREEN_MANAGER.Update(gameTime);
             timer.Update(gameTime);
-
-
+            Vitality = timer.currentLevel/1000;
+            Vitalityrec = new Rectangle(1060, 650, Vitalitytex.Width * (int)Vitality/100, Vitalitytex.Height);
+            Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width * (int)Vitality / 100, Vitalitytex.Height);
             base.Update(gameTime);
         }
 
@@ -115,9 +126,15 @@ namespace WhatDoWeDoNow
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+
+
         protected override void Draw(GameTime gameTime)
         {
             SCREEN_MANAGER.Draw(gameTime);
+            spriteBatch.Begin();
+        //    spriteBatch.Draw(ramytex,ramyrec,Color.White);
+            spriteBatch.Draw(Vitalitytex, Vitalityrec, Vitalityrec2, Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

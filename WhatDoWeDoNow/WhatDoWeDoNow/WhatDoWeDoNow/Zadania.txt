@@ -1,8 +1,8 @@
-null;1;1;Click Me;MainGame
-null;1;2;to jest 1 pokoj;MainGame
-null;1;1;to tez jest 1 pokoj;MainGame
-null;1;2;ten nazywa sie room1;Room1
-null;1;3;mmmmmmmmmmmmmmm room2;Room2
-null;1;3;to tez :);Room2
-null;1;3;to ostatni room3;Room3
-null;1;3;drugi room 3;Room3
+null;false;;Click Me;MainGame
+null;false;;to jest 1 pokoj;MainGame
+null;true;4;to tez jest 1 pokoj 77 7777777 fsdgasd sdgasdg  dfgs dfhg 777777 77777777777 dfsg dfrg sdfgshbthbfdg fdbfgs sdgsedgsd;MainGame;odp1;odp2;odp3;odp4
+null;false;;ten nazywa sie room1;Room1
+null;false;;mmmmmmmmmmmmmmm room2;Room2
+null;false;;to tez :);Room2
+null;false;;to ostatni room3;Room3
+null;false;;drugi room 3;Room3
