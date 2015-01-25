@@ -45,7 +45,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                 goodanswer = value;
                 if (value == false)
                 {
-                    Game1.timer.currentLevel -=(3f*1000);
+                   
                 }
             }
         }
@@ -277,6 +277,10 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                 }
                 if (Mouse.GetState().LeftButton == ButtonState.Released && MouseLeftTemp)
                 {
+                    if (!GoodAnswer)
+                    {
+                        Game1.timer.currentLevel -= (20f * 1000);
+                    }
                     MouseLeftTemp = false;
                     View = false;
                     i = 0;
