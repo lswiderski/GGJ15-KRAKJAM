@@ -140,7 +140,7 @@ namespace WhatDoWeDoNow
             }
                 
           
-            DrawDebug(spriteBatch);
+            //DrawDebug(spriteBatch);
         }
 
         public void Go()

@@ -84,7 +84,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     licznik = 0;
                 }
             }
-            DrawDebug(spriteBatch);
+            //DrawDebug(spriteBatch);
             
         }
 
