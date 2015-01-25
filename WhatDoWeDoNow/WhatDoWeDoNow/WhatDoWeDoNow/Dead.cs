@@ -139,7 +139,7 @@ namespace WhatDoWeDoNow.Screens.MainScreen
                     flag = true;
                     spriteBatch.Draw(Comments, CommentsPosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
 
-                    spriteBatch.DrawString(mySpriteFont, parseText("Prawidłowa odpowiedz to nr. " + label[6] + ". Wybierz kolejny pokój.", 250), new Vector2(1080, 75 + Head1.Height), Color.Black);
+                    spriteBatch.DrawString(mySpriteFont, parseText("Correct answer is " + label[6] + ". Choose next room", 250), new Vector2(1080, 75 + Head1.Height), Color.Black);
                 
                     Color c1,c2,c3,c4;
                     if(label[6] == "1")
