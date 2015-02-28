@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using WhatDoWeDoNow.ScreenManager;
 using WhatDoWeDoNow.Screens;
 using WhatDoWeDoNow.Screens.MainScreen;
+using System.IO;
 
 namespace WhatDoWeDoNow
 {
@@ -33,7 +34,7 @@ namespace WhatDoWeDoNow
         public static int MaxXPosition = 880;
         public static int MaxYPosition = 670;
         private Song BGM;
-        public float Vitality= 100;
+        public float Vitality = 100;
         public static LifeTimer timer;
         public static PLAYER_ENTER_FROM PlayerEnterFrom;
         private Texture2D ramytex;
@@ -55,7 +56,7 @@ namespace WhatDoWeDoNow
             IsMouseVisible = true;
             PlayerEnterFrom = PLAYER_ENTER_FROM.Left;
         }
-
+        private List<string[]> Zadania;
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -64,8 +65,27 @@ namespace WhatDoWeDoNow
         /// </summary>
         protected override void Initialize()
         {
-            SCREEN_MANAGER.add_screen(new Screen1(GraphicsDevice,Content));
-            SCREEN_MANAGER.add_screen(new Screen2(GraphicsDevice,Content));
+            Zadania = new List<string[]>();
+            using (var stream = TitleContainer.OpenStream(@"Zadania.txt"))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    while (reader.Peek() >= 0)
+                        Zadania.Add(reader.ReadLine().Split(';'));
+                }
+            }
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Zadania.txt"))
+            {
+                foreach (string[] line in Zadania)
+                {
+
+                    file.WriteLine("null;" + line[1] + ";" + line[2] + ";" + line[3] + ";" + line[4] + ";" + line[5] + ";" + line[6] + ";" + line[7] + ";" + line[8]);
+
+                }
+            }
+            SCREEN_MANAGER.add_screen(new Screen1(GraphicsDevice, Content));
+            SCREEN_MANAGER.add_screen(new Screen2(GraphicsDevice, Content));
             SCREEN_MANAGER.add_screen(new MainGameScreen(GraphicsDevice, Content));
             SCREEN_MANAGER.add_screen(new Room1(GraphicsDevice, Content));
             SCREEN_MANAGER.add_screen(new Room2(GraphicsDevice, Content));
@@ -85,13 +105,13 @@ namespace WhatDoWeDoNow
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             ramytex = Content.Load<Texture2D>("Ramy");
-            ramyrec = new Vector2(1060,600);
+            ramyrec = new Vector2(1060, 600);
             Vitalitytex = Content.Load<Texture2D>("Vitality");
-            Vitalityrec = new Rectangle(1060, 650 ,Vitalitytex.Width,Vitalitytex.Height);
+            Vitalityrec = new Rectangle(1060, 650, Vitalitytex.Width, Vitalitytex.Height);
             BGM = Content.Load<Song>("MyVeryOwnDeadShip");
             MediaPlayer.Play(BGM);
             MediaPlayer.IsRepeating = true;
-            Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width,Vitalitytex.Height);
+            Vitalityrec2 = new Rectangle(0, 0, Vitalitytex.Width, Vitalitytex.Height);
             SCREEN_MANAGER.Init();
             timer = new LifeTimer();
             lossTexture2D = Content.Load<Texture2D>("loose");
@@ -117,7 +137,7 @@ namespace WhatDoWeDoNow
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-            if(Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
             if (!win && !loss)
             {
@@ -144,7 +164,7 @@ namespace WhatDoWeDoNow
                     loss = true;
                 }
             }
-           
+
             base.Update(gameTime);
         }
 
@@ -153,22 +173,22 @@ namespace WhatDoWeDoNow
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
 
-        int licznik=0;
+        int licznik = 0;
         protected override void Draw(GameTime gameTime)
         {
             SCREEN_MANAGER.Draw(gameTime);
             spriteBatch.Begin();
-        //    spriteBatch.Draw(ramytex,ramyrec,Color.White);
+            //    spriteBatch.Draw(ramytex,ramyrec,Color.White);
             licznik++;
             if (licznik < 10)
                 spriteBatch.Draw(Vitalitytex, Vitalityrec, Vitalityrec2, Color.White, 0f, Vector2.Zero, SpriteEffects.FlipVertically, 0f);
             else if (licznik < 20)
                 spriteBatch.Draw(Vitalitytex, Vitalityrec, Vitalityrec2, Color.White);
-            if (licznik == 19)licznik = 0;
+            if (licznik == 19) licznik = 0;
 
             if (win)
             {
-                spriteBatch.Draw(winTexture2D,new Vector2(200,200),Color.White );
+                spriteBatch.Draw(winTexture2D, new Vector2(200, 200), Color.White);
             }
             if (loss)
             {
